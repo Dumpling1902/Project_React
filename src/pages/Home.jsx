@@ -1,5 +1,7 @@
 import MovieCard from "../components/MovieCard"
-
+import avatarImg from "../assets/images/avatar.jpg";
+import ayudaImg from "../assets/images/ayuda.jpg";
+import arcoImg from "../assets/images/arco.jpg";
 
 function Home({cambiarVista}) {
     return (
@@ -15,17 +17,17 @@ function Home({cambiarVista}) {
 
             <MovieCard
             title="Avatar: Fuego y Cenizas"
-            image=""
+            image={avatarImg}
             onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
 
             <MovieCard
             title="Ayuda!!"
-            image=""
+            image={ayudaImg}
             onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
 
             <MovieCard
             title="Arco"
-            image=""
+            image={arcoImg}
             onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
         </main>
     )

@@ -1,4 +1,7 @@
 import MovieCard from "../components/MovieCard"
+import snkImg from "../assets/images/attack.jpg";
+import bobImg from "../assets/images/bob.jpg";
+
 
 function Cartelera({cambiarVista}) {
     return (
@@ -14,11 +17,11 @@ function Cartelera({cambiarVista}) {
         >
             <MovieCard
             title="Shingeki No Kyojin: The Final Season"
-            image=""
+            image={snkImg}
             onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
             <MovieCard
             title="Bob Esponja: El Rescate"
-            image=""
+            image={bobImg}
             onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
         </main>
     )
