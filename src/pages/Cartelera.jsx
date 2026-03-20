@@ -1,30 +1,26 @@
-import MovieCard from "../components/MovieCard"
-import snkImg from "../assets/images/attack.jpg";
-import bobImg from "../assets/images/bob.jpg";
+import MovieCard from "../components/MovieCard";
+import peliculas from "../detalles.json";
 
+function Cartelera({ verDetalle }) {
+    return(
+        <main className="container">
+        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+            Cartelera
+        </h2>
 
-function Cartelera({cambiarVista}) {
-    return (
-        <main
-            style={{
-                maxWidth: "1200px",
-                margin: "0 auto",
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-                gap: "16px",
-                padding: "16px",
-        }}
-        >
+        <div className="grid">
+            {peliculas.map((pelicula) => (
             <MovieCard
-            title="Shingeki No Kyojin: The Final Season"
-            image={snkImg}
-            onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
-            <MovieCard
-            title="Bob Esponja: El Rescate"
-            image={bobImg}
-            onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
+                key={pelicula.id}
+                title={pelicula.titulo}
+                image={pelicula.imagen}
+                description={pelicula.descripcion}
+                onVerDetalle={() => verDetalle(pelicula)}
+            />
+            ))}
+        </div>
         </main>
-    )
+    );
 }
 
 export default Cartelera

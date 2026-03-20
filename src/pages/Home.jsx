@@ -1,36 +1,44 @@
-import MovieCard from "../components/MovieCard"
-import avatarImg from "../assets/images/avatar.jpg";
-import ayudaImg from "../assets/images/ayuda.jpg";
-import arcoImg from "../assets/images/arco.jpg";
+import MovieCard from "../components/MovieCard";
+import peliculasDestacadas from "../data/peliculas.json";
+import MovieCarousel from "../components/MovieCarousel";
 
-function Home({cambiarVista}) {
+function Home({ verDetalle }) {
+
     return (
-        <main
-        style={{
+        <>
+        <section
+            style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "16px",
-            padding: "16px",
-        }}>
+            padding: "16px"
+            }}
+        >
+            <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+            Estrenos
+            </h2>
 
-            <MovieCard
-            title="Avatar: Fuego y Cenizas"
-            image={avatarImg}
-            onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
+            <MovieCarousel movies={peliculasDestacadas} />
+        </section>
 
-            <MovieCard
-            title="Ayuda!!"
-            image={ayudaImg}
-            onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
+        <main className="container">
+            <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+            Cartelera destacada
+            </h2>
 
-            <MovieCard
-            title="Arco"
-            image={arcoImg}
-            onVerDetalle={() => cambiarVista("detalle")}></MovieCard>
+            <div className="grid">
+            {peliculasDestacadas.map((pelicula) => (
+                <MovieCard
+                key={pelicula.id}
+                title={pelicula.titulo}
+                image={pelicula.imagen}
+                description={pelicula.descripcion}
+                onVerDetalle={() => verDetalle(pelicula)}
+                />
+            ))}
+            </div>
         </main>
-    )
+        </>
+    );
 }
 
 export default Home
