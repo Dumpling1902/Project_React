@@ -1,50 +1,28 @@
-import { useState } from "react";
-import Header from "./components/Header";
-
-// Vistas
-import Home from "./pages/Home";
-import Cartelera from "./pages/Cartelera";
-import Detalle from "./pages/Detalle";
-import Alimentos from "./pages/Alimentos";
-import Otros from "./pages/Otros";
+import Header from "./components/Header"
+import { Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Cartelera from "./pages/Cartelera"
+import Detalle from "./pages/Detalle"
+import Alimentos from "./pages/Alimentos"
+import Otros from "./pages/Otros"
+import Favoritos from "./pages/Favoritos"
 
 function App() {
-  // Control de navegación
-  const [vistaActual, setVistaActual] = useState("home");
-
-  // Película seleccionada 
-  const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null);
-
-  // Función para ver detalle
-  function verDetalle(pelicula) {
-    setPeliculaSeleccionada(pelicula);
-    setVistaActual("detalle");
-  }
-
   return (
     <div style={{ minHeight: "100vh" }}>
-      <Header cambiarVista={setVistaActual} />
+      <Header />
 
-      {/* HOME */}
-      {vistaActual === "home" && (
-        <Home verDetalle={verDetalle} />
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cartelera" element={<Cartelera />} />
+        <Route path="/alimentos" element={<Alimentos />} />
+        <Route path="/otros" element={<Otros />} />
+        <Route path="/favoritos" element={<Favoritos />} />
 
-      {/* CARTELERA */}
-      {vistaActual === "cartelera" && (
-        <Cartelera verDetalle={verDetalle} />
-      )}
-
-      {/* DETALLE */}
-      {vistaActual === "detalle" && (
-        <Detalle pelicula={peliculaSeleccionada} />
-      )}
-
-      {/* NUEVAS SECCIONES */}
-      {vistaActual === "alimentos" && <Alimentos />}
-      {vistaActual === "otros" && <Otros />}
+        <Route path="/pelicula/:id" element={<Detalle />} />
+      </Routes>
     </div>
-  );
+  )
 }
 
 export default App

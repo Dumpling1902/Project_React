@@ -1,39 +1,23 @@
-import { useState } from "react";
-import Button from "./Button";
+import { useNavigate } from "react-router-dom"
+import Button from "./Button"
 
-function MovieCard({ title, image, description, onVerDetalle }) {
-    const [mostrarDesc, setMostrarDesc] = useState(false);
-
-    function toggleDescripcion() {
-    setMostrarDesc(!mostrarDesc);
-    }
+function MovieCard({ pelicula }) {
+    const navigate = useNavigate()
 
     return (
-    <div className="card">
-        <img src={image} alt={title} />
+        <div className="card">
+        <img src={pelicula.imagen} alt={pelicula.titulo} />
 
         <div className="card-body">
-        <h3>{title}</h3>
+            <h3>{pelicula.titulo}</h3>
 
-        <button
-            onClick={toggleDescripcion}
-            style={{
-            marginBottom: "8px",
-            padding: "6px 10px",
-            cursor: "pointer"
-            }}
-        >
-            {mostrarDesc ? "Ocultar descripción" : "Mostrar descripción"}
-        </button>
-
-        {mostrarDesc && (
-            <p style={{ fontSize: "14px" }}>{description}</p>
-        )}
-
-        <Button text="Ver detalle" onClick={onVerDetalle} />
+            <Button
+            text="Ver detalle"
+            onClick={() => navigate(`/pelicula/${pelicula.id}`)}
+            />
         </div>
-    </div>
-    );
+        </div>
+    )
 }
 
 export default MovieCard

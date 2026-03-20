@@ -1,44 +1,18 @@
-import MovieCard from "../components/MovieCard";
-import peliculasDestacadas from "../data/peliculas.json";
-import MovieCarousel from "../components/MovieCarousel";
+import MovieCard from "../components/MovieCard"
+import peliculas from "../detalles.json"
 
-function Home({ verDetalle }) {
-
+function Home() {
     return (
-        <>
-        <section
-            style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "16px"
-            }}
-        >
-            <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
-            Estrenos
-            </h2>
-
-            <MovieCarousel movies={peliculasDestacadas} />
-        </section>
-
         <main className="container">
-            <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
-            Cartelera destacada
-            </h2>
+        <h2 style={{ textAlign: "center" }}>Cartelera destacada</h2>
 
-            <div className="grid">
-            {peliculasDestacadas.map((pelicula) => (
-                <MovieCard
-                key={pelicula.id}
-                title={pelicula.titulo}
-                image={pelicula.imagen}
-                description={pelicula.descripcion}
-                onVerDetalle={() => verDetalle(pelicula)}
-                />
+        <div className="grid">
+            {peliculas.map((pelicula) => (
+            <MovieCard key={pelicula.id} pelicula={pelicula} />
             ))}
-            </div>
+        </div>
         </main>
-        </>
-    );
+    )
 }
 
 export default Home
