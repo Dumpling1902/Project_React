@@ -1,16 +1,16 @@
 import MovieCard from "../components/MovieCard"
-import peliculas from "../detalles.json"
+import peliculas from "../data/peliculasDestacadas.json"
 
 function Home() {
     return (
         <main className="container">
-        <h2 style={{ textAlign: "center" }}>Cartelera destacada</h2>
+            <h2 className="title">Cartelera destacada</h2>
 
-        <div className="grid">
-            {peliculas.map((pelicula) => (
-            <MovieCard key={pelicula.id} pelicula={pelicula} />
-            ))}
-        </div>
+            <div className="grid">
+                {peliculas.map((pelicula) => (
+                    <MovieCard key={pelicula.id} pelicula={pelicula} />
+                ))}
+            </div>
         </main>
     )
 }

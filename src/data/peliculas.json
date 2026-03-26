@@ -1,16 +1,30 @@
 [
     {
-        "id": 101,
-        "titulo": "Shingeki No Kyojin: The Final Season",
-        "imagen": "https://m.media-amazon.com/images/M/MV5BMzVhOGMzYzQtNzgyMi00NjZmLWEzYjUtMjQ2NDE3Njk4MmRkXkEyXkFqcGc@._V1_.jpg",
-        "descripcion": "La batalla final por la humanidad ha comenzado.",
-        "destacada": true
+        "id": 1,
+        "titulo": "Avatar: Fuego y Cenizas",
+        "imagen": "/images/avatar.jpg",
+        "descripcion": "Una nueva aventura en el universo de Pandora.",
+        "destacada": false
     },
     {
-        "id": 102,
-        "titulo": "Bob Esponja: Al Rescate",
-        "imagen": "https://m.media-amazon.com/images/M/MV5BNjAyZDQwOTktZjc0Yi00MzNjLWI1NmUtODI2ZjJmYWRjOTA3XkEyXkFqcGc@._V1_.jpg",
-        "descripcion": "Bob Esponja y Patricio viven una nueva aventura submarina.",
-        "destacada": true
+        "id": 2,
+        "titulo": "Ayuda",
+        "imagen": "/images/ayuda.jpg",
+        "descripcion": "Una historia intensa llena de suspenso.",
+        "destacada": false
+    },
+    {
+        "id": 3,
+        "titulo": "Arco",
+        "imagen": "/images/arco.jpg",
+        "descripcion": "Una película animada sobre amistad y esperanza.",
+        "destacada": false
+    },
+    {
+        "id": 4,
+        "titulo": "Zootopia",
+        "imagen": "/images/zootopia2.jpg",
+        "descripcion": "Una película sobre una ciudad de animales donde todo es posible.",
+        "destacada": false
     }
 ]
