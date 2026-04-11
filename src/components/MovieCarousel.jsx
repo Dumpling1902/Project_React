@@ -14,11 +14,7 @@ function MovieCarousel ({ movies }) {
         >
             {movies.map((movie) => (
                 <SwiperSlide key={movie.id}>
-                    <MovieCard
-                        title={movie.titulo}
-                        image={movie.imagen}
-                        description={movie.descripcion}
-                    />
+                    <MovieCard pelicula={movie} />
                 </SwiperSlide>
             ))}
         </Swiper>
